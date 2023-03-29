@@ -55,6 +55,8 @@ export interface StackedBarChartProps extends AbstractChartProps {
    * (space below chart)
    */
   verticalLabelsHeightPercentage?: number;
+  horizontalLabelRotation?: number;
+  verticalLabelRotation?: number;
 
   formatYLabel?: (yLabel: string) => string;
 }
@@ -197,6 +199,8 @@ class StackedBarChart extends AbstractChart<
       data,
       withHorizontalLabels = true,
       withVerticalLabels = true,
+      verticalLabelRotation = 0,
+      horizontalLabelRotation = 0,
       segments = 4,
       decimalPlaces,
       percentile = false,
@@ -210,7 +214,9 @@ class StackedBarChart extends AbstractChart<
     const { borderRadius = 0 } = style;
     const config = {
       width,
-      height
+      height,
+      verticalLabelRotation,
+      horizontalLabelRotation,
     };
 
     let border = 0;
